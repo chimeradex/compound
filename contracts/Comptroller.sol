@@ -971,9 +971,6 @@ contract Comptroller is
 
             // Get the normalized price of the asset
             vars.oraclePriceMantissa = oracle.getUnderlyingPrice(asset);
-            if (vars.oraclePriceMantissa == 0) {
-                return (Error.PRICE_ERROR, 0, 0);
-            }
             vars.oraclePrice = Exp({mantissa: vars.oraclePriceMantissa});
 
             // Pre-compute a conversion factor from tokens -> ether (normalized price value)
